@@ -1,10 +1,15 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import seaborn as sns #seaborn til plots
+import seaborn as sns
 from matplotlib import pyplot as plt #plot control
 sns.set() #plot style
 
+
+st.set_page_config(page_title='ReachAAUt workshop',
+page_icon="🚀",
+layout='wide'
+)
 
 # LOAD DATA ONCE
 @st.experimental_singleton
@@ -23,10 +28,7 @@ def load_data():
 
 data = load_data()
 
-st.set_page_config(page_title='ReachAAUt workshop',
-page_icon="🚀",
-layout='wide'
-)
+
 
 
 st.title("AirBnb rentals in Copenhagen 🇩🇰")
@@ -35,10 +37,10 @@ st.text("""This is some text describing a very complex project....
 """
 )
 
+countplot = plt.figure()
+sns.countplot(y="neighbourhood", 
+                hue="room_type", 
+                data=data, 
+                order = data.neighbourhood.value_counts().index)
 
-#countplot = sns.countplot(y="neighbourhood", 
-#                hue="room_type", 
-#                data=data, 
-#                order = data.neighbourhood.value_counts().index)
-
-#st.pyplot(countplot)
+st.pyplot(countplot)
