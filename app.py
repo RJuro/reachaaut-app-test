@@ -36,9 +36,9 @@ st.text("""This is some text describing a very complex project....
 )
 
 
-countplot = sns.countplot(y="neighbourhood", 
-                hue="room_type", 
-                data=data, 
-                order = data.neighbourhood.value_counts().index)
+#countplot = sns.countplot(y="neighbourhood", 
+#                hue="room_type", 
+#                data=data, 
+#                order = data.neighbourhood.value_counts().index)
 
-st.pyplot(countplot)
+#st.pyplot(countplot)
